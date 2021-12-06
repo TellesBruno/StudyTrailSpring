@@ -19,6 +19,23 @@ public class PeopleDBService {
         return peopleDBs;
     }
 
+    public PeopleDB getPeopleDB(int id) {
+        if (peopleDBRepository.findById(id).isPresent()) {
+            return peopleDBRepository.findById(id).get();
+        } else {
+            return null;
+        }
+    }
 
+    public void addPeopleDB(PeopleDB peopleDB) {
+        peopleDBRepository.save(peopleDB);
+    }
 
+    public void updatePeopleDB(PeopleDB peopleDB) {
+        peopleDBRepository.save(peopleDB);
+    }
+
+    public void deletePeopleDB(int id) {
+        peopleDBRepository.deleteById(id);
+    }
 }
