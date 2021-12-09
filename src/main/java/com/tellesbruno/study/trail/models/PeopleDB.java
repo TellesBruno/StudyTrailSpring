@@ -1,5 +1,9 @@
 package com.tellesbruno.study.trail.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,39 +11,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@Getter @Setter @NoArgsConstructor
 public class PeopleDB {
 
     @Id
     @Column
     private int id;
 
-    @Column
+    @Column(length = 50, nullable = false)
     private String nome;
 
-    @Column
+    @Column(length = 11, nullable = false)
     private String cpf;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 }

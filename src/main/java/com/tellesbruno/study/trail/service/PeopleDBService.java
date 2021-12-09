@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class PeopleDBService {
@@ -20,10 +21,10 @@ public class PeopleDBService {
     }
 
     public PeopleDB getPeopleDB(int id) {
-        if (peopleDBRepository.findById(id).isPresent()) {
+        try {
             return peopleDBRepository.findById(id).get();
-        } else {
-            return null;
+        } catch (NoSuchElementException e) {
+            return new PeopleDB();
         }
     }
 
